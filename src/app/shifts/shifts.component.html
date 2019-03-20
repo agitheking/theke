@@ -1,2 +1,11 @@
-<h2>{{shift.name}}</h2>
-<div>{{shift.id}}</div>
+<h2>Thekendienste</h2>
+
+<ul class="shifts">
+<li [class.selected]="shifts === selectedShift" *ngFor="let shift of shifts" (click)="onSelect(shift)">
+  <span class="badge">{{shift.id}}</span>{{shift.name}}
+
+
+</li>
+</ul>
+
+<app-shift-detail [shift]="selectedShift"></app-shift-detail>
