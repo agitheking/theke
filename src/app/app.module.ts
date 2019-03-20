@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShiftsComponent } from './shifts/shifts.component';
 import { ShiftDetailComponent } from './shift-detail/shift-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShiftsComponent,
-    ShiftDetailComponent
+    ShiftDetailComponent,
+    MessagesComponent
     
   ],
   imports: [
