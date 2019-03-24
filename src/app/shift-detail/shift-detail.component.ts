@@ -4,6 +4,7 @@ import { from } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ShiftService } from '../shift.service';
 import { Location } from '@angular/common';
+import { shiftInitState } from '@angular/core/src/view';
 
 @Component({
   selector: 'app-shift-detail',
@@ -28,5 +29,9 @@ export class ShiftDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  placesAvailable(): boolean {
+    return this.shift.maxPlaces > this.shift.places.length
   }
 }

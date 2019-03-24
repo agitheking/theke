@@ -1,9 +1,37 @@
 <div *ngIf="shift">
+    <section>
+        <div class="container">
+            <div class="columns ">
+                <div class="column is-narrow">
+                    <h3 class="title is-3">Stück: {{shift.name}}</h3>
+                    <h4 class="title is-4">Datum: {{shift.start}}</h4>
+                    <div class="field is-grouped is-grouped-multiline"
+                        *ngFor="let place of shift.places; let i = index">
+                        <div class="control">
+                            <input class="input is-warning" type="text" value="{{place.name}}" readonly>
+                        </div>
+                    </div>
+                    <div *ngIf="placesAvailable()">
+                        <div class="control">
+                            <input class="input is primary" type="text" placeholder="Dein Name">
+                        </div>
+                        <br>
+                        <div class="control">
+                            <button class="button is-primary" (click)="goBack()">eintragen</button>
+                        </div>
 
-    <h2>Name {{shift.name}}</h2>
-    <div><span>{{shift.id}}</span>{{shift.name}}</div>
-    <label for=""></label>name:
-    <div><input type="text" placeholder="name" [(ngModel)]="shift.name" /></div>
 
-    <button (click)="goBack()">zurück</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="columns">
+                <button class="button is-danger" (click)="goBack()">zurück</button>
+
+
+            </div>
+        </div>
+    </section>
 </div>
