@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Shift } from '../shift';
 import { SHIFTS } from '../mock_shifts';
-import {ShiftService} from '../shift.service';
+import { ShiftService } from '../shift.service';
 
 import { from } from 'rxjs';
 
@@ -27,7 +27,8 @@ export class ShiftsComponent implements OnInit {
     this.selectedShift = shift;
   }
 
-  getShifts () {
-   this.shiftService.getShifts().subscribe(shifts => this.shifts = shifts);
+  getShifts() {
+    this.shiftService.getShifts()
+      .subscribe(shifts => this.shifts = shifts);
   }
 }
