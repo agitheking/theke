@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Shift} from '../shift';
+import { Shift } from '../shift';
 import { from } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { ShiftService } from '../shift.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-shift-detail',
@@ -9,11 +12,21 @@ import { from } from 'rxjs';
 })
 export class ShiftDetailComponent implements OnInit {
 
-  @Input() shift:Shift;
+  @Input() shift: Shift;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private shiftService: ShiftService, private location: Location) { }
 
   ngOnInit() {
+    this.getShift();
   }
 
+  getShift(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.shiftService.getShift(id)
+      .subscribe(shift => this.shift = shift);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

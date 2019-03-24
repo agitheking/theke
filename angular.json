@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.styl"
+              "./node_modules/bulma/css/bulma.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
