@@ -1,10 +1,40 @@
-<h2>Thekendienste</h2>
+<h2 class="title is-2">Thekendienste</h2>
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-narrow">
+      <table class="table">
+        <thead>
+          <th>Datum / Stück</th>
+          <th>Thekendienst</th>
+          <th></th>
+        </thead>
 
-<ul class="shifts">
-  <li *ngFor="let shift of shifts">
-    <a routerLink="/detail/{{shift.id}}">
-      <span class="badge">{{shift.id}}</span>{{shift.name}}
-    </a>
+        <tbody>
+          <ng-container *ngFor="let shift of shifts">
+            <tr>
+              <td>
+                <div>{{shift.name}}</div>
+                <div>{{shift.start}}</div>
 
-  </li>
-</ul>
+              </td>
+              <td>
+                <div *ngFor="let place of shift.places">
+                  {{place.name}}
+                </div>
+
+              </td>
+              <td>
+                <a class="button is-primary is-outlined" routerLink="/detail/{{shift.id}}">
+                  eintragen
+                </a></td>
+
+            </tr>
+          </ng-container>
+
+        </tbody>
+
+
+      </table>
+    </div>
+  </div>
+</div>

@@ -12,8 +12,6 @@ import { from } from 'rxjs';
 })
 export class ShiftsComponent implements OnInit {
 
-  shift: Shift = { id: 1, name: 'Ich Romeo Du Julia', start: '12.12.2019 12:12' };
-
   shifts: Shift[];
 
   constructor(private shiftService: ShiftService) { }
